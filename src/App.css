@@ -1,38 +1,433 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 9px;
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+}
+
+body{
+  background-color: #C5BBE0;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.App{
+  width: 30em;
+  height: 100vh;
+  /* position: relative; */
+  margin: 0 auto;
+  /* border: 2px solid red; */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HEADER */
+
+.home_info{
+  background-color: #221056;
+  width: 100%;
+  height: auto;
+  padding: 2em;
+  border-bottom-left-radius: 2.5em;
+  border-bottom-right-radius: 2.5em;
+  -webkit-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  -moz-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home_info__logo{
+  background: url('./img/coin_logo.png') no-repeat center top / cover;
+  width: 10em;
+  height: 10em;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.coins{
+  font-size: 4em;
+  text-shadow: -2px 2px 2px #703ADD;
+}
+
+
+.lvl_block{
+  margin-top: 2em;
+}
+
+.lvl_block .lvl_block__info{
+  font-size: 2.4em;
+  text-shadow: -2px 2px 2px #703ADD;
+}
+
+.lvl_block__progress_bar, .claim__progress_bar{
+  width: 22.5em;
+  height: 3.5em;
+  background-color: #fff;
+  margin: 1em auto;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  padding: 0 0.2em;
+  -webkit-box-shadow: -4px 4px 4px 0px rgba(18,0,54,1);
+  -moz-box-shadow: -4px 4px 4px 0px rgba(18,0,54,1);
+  box-shadow: -4px 4px 4px 0px rgba(18,0,54,1);
+  transition: .2s;
+}
+
+.lvl_block__progress_bar--line, .claim__progress_bar--line{
+  width: 30%;
+  height: 3.1em;
+  background-color: #FF9900;
+  border-radius:  0.5em;
+}
+
+.home__play{
+  background-color: #fff;
+  width: 15em;
+  height: 6em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+  position: relative;
+  transition: .2s;
+}
+
+.home__play p{
+  color: #C4B5FF;
+  font-size: 2em;
+  z-index: 999;
+}
+
+.home__play_progress{
+  width: 0%;
+  height: 100%;
+  background-color: #120044;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 1em;
+  transition: 1s;
+}
+
+.home__play:active{
+  transform: scale(.9);
+}
+
+/* Claim */
+.claim__timer, .claim__money{
+  font-size: 2.4em;
+  text-shadow: -2px 2px 2px #120044;
+  display: flex;
+  justify-content: center;
+  margin-top: .2em;
+}
+
+.claim__money img {
+  margin-right: 1em;
+}
+
+.claim__progress_bar{
+  -webkit-box-shadow: -2px 2px 2px 0px rgba(96,78,146,1);
+  -moz-box-shadow: -2px 2px 2px 0px rgba(96,78,146,1);
+  box-shadow: -2px 2px 2px 0px rgba(96,78,146,1);
+}
+
+.claim__progress_bar--line{
+  background-color: #532EDC;
+}
+
+/* claim buttons */
+
+.claim__button{
+  border: none;
+  background-color: #221056;
+  font-size: 2.4em;
+  padding: .3em .5em;
+  border-radius: .5em;
+  transition: .2s;
+}
+
+.claim__button:active{
+  transform: scale(.9);
+}
+
+.claim__button--no_ready, .claim__button--ready{
+  color: #C4B5FF;
+  font-size: 2.4em;
+  background-color: white;
+  border-radius: .5em;
+  border: none;
+  padding: .3em .5em;
+}
+
+.claim__button--ready{
+  color: #532EDC;
+  text-shadow: -1px 1px 1px #120044;
+  transition: .2s;
+}
+
+.claim__button--ready:active{
+  transform: scale(.9);
+}
+
+/* MENU */
+.Menu{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 8em;
+  background-color: #221056;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 3em;
+  padding-bottom: 1em;
+}
+
+.Menu button{
+  border: none;
+  background-color: transparent;
+  transition: .2s;
+}
+
+.Menu button img{
+  height: 3em;
+}
+
+/* Friends */
+
+.Friends{
+  width: 100%;
+  height: 70%;
+  overflow-y: scroll;
+  padding: 2em 1em;
+  background-color: #120044;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 3em;
+  -webkit-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  -moz-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+}
+
+
+/* Friends COMPONENT */
+._Friends{
+  width: 100%;
+  background-color: rgba(86, 63, 152, .5);
+  border-radius: .6em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+._friends__name, ._friends__coins{
+  font-size: 1.6em;
+}
+
+/* buttons */
+.friend_page__buttons{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 2em 0;
+}
+
+.friends_page__buttons--claim_btn__active, .friends_page__buttons--invite_btn, .friends_page__buttons--claim_btn__no_active{
+  width: auto;
+  background-color: #120044;
+  font-size: 2.4em;
+  margin: 0 auto 0.625em auto;
+  border: none;
+  border-radius: 0.42em;
+  transition: .2s;
+  padding: 0 1em;
+}
+
+.friends_page__buttons--claim_btn__no_active{
+  background-color: #fff;
+  color: #C4B5FF;
+}
+
+
+.friends_page__buttons--invite_btn{
+  width: 7em;
+  background-color: #FF9900;
+  text-shadow: -2px 2px 2px #995C00;
+  -webkit-box-shadow: 0px 2px 2px 3px rgba(192,127,29,1);
+  -moz-box-shadow: 0px 2px 2px 3px rgba(192,127,29,1);
+  box-shadow: 0px 2px 2px 3px rgba(192,127,29,1);
+  margin-top: 1em;
+}
+
+
+.friends_page__buttons--claim_btn__active:active, .friends_page__buttons--invite_btn:active{
+  transform: scale(.9);
+}
+
+
+/* TASKS */
+
+.tasks__bg{
+  width: 100%;
+  height: auto;
+  background-color: #221056;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 3em;
+  -webkit-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  -moz-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.Task{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1.5em;
+  margin-bottom: 1.5em;
+  background-color: rgba(86, 63, 152, 1);
+  padding: 1em;
+  border-radius: .8em;
+  -webkit-box-shadow: 4px 4px 4px 0px rgba(22,4,74,1);
+  -moz-box-shadow: 4px 4px 4px 0px rgba(22,4,74,1);
+  box-shadow: 4px 4px 4px 0px rgba(22,4,74,1);
+}
+
+.Task p{
+  font-size: 1.3em;
+}
+
+.Task button{
+  border: none;
+  background-color: #fff;
+  color: #532EDC;
+  font-size: 1em;
+  padding: 0 0.5em;
+  border-radius: .3em;
+  transition: .1s;
+}
+
+.Task button:active{
+  transform: scale(.9);
+}
+
+
+/* GAME OVER */
+.game_over{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.game_over__popup{
+  width: 20em;
+  height: 10em;
+  border-radius: 2em;
+  background-color: #532EDC;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  -moz-box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+  box-shadow: 4px 6px 7.3px 0px rgba(12,0,38,0.51);
+}
+
+.game_over__popup p{
+  font-size: 2em;
+}
+
+.game_over__popup button{
+  background-color: white;
+  border: none;
+  color: #221056;
+  font-size: 2em;
+  padding: 0 1em;
+  border-radius: 0.3em;
+  margin-top: 0.4em;
+}
+
+.gameQR{
+  background: url('./img/Game QR.png') no-repeat center top / cover;
+  width: 100%;
+  height: 290px;
+  margin-top: 2em;
+}
+
+.PcPage h1{
   color: white;
+  font-size: 45px;
+  text-shadow: -2px 2px 2px #120044;
 }
 
-.App-link {
-  color: #61dafb;
+/* MEDIA */
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 11px;
+  }
+  .friends_page__buttons--invite_btn{
+    position: relative;
+    bottom: 1em;
+  }
+  .App{
+    width: 60em;
+  }
+  .Task p{
+    font-size: 2em;
+  }
+  
+  .Task button{
+    font-size: 2em;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (max-width: 680px) {
+  .App{
+    width: 50em;
   }
 }
+
+@media screen and (max-width: 560px) {
+  .App{
+    width: 40em;
+  }
+  .Task p{
+    font-size: 1.5em;
+  }
+  
+  .Task button{
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .App{
+    width: 30em;
+  }
+  .Task p{
+    font-size: 1.3em;
+  }
+  
+  .Task button{
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  * {
+    font-size: 9.5px;
+  }
+}
+
+/* canvas{
+  position: absolute;
+  left: 0; top: 0;
+} */
